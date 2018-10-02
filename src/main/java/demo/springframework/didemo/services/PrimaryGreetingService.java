@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Primary        // More then one beans of the same type, make one as default
-@Profile("en")  // Marked as an English profile
+@Primary                     // More then one beans of the same type, make one as default
+@Profile({"en", "default"})  // Marked as an English profile, default profile when there is no achieved profile
 public class PrimaryGreetingService implements GreetingService {
 
     @Override
