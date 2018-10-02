@@ -5,12 +5,12 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Primary        // More then one beans of the same type, make one as default
-@Profile("en")  // Marked as an English profile
-public class PrimaryGreetingService implements GreetingService {
+@Profile("ch")      // Marked as an chinese profile
+@Primary
+public class PrimaryChineseGreetingService implements GreetingService {
 
     @Override
     public String sayGreeting() {
-        return "Hello - Primary Greeting service";
+        return "您好 - 中文默认注入";
     }
 }
