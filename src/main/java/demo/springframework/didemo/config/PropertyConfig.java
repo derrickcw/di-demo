@@ -2,27 +2,25 @@ package demo.springframework.didemo.config;
 
 import demo.springframework.didemo.examplebeans.FakeDataSource;
 import demo.springframework.didemo.examplebeans.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 @Configuration
 
 /* Use Multiple properties config files */
 // @PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
-@PropertySources({
+/*@PropertySources({
         @PropertySource("classpath:datasource.properties"),
         @PropertySource("classpath:jms.properties")
-})
+})*/
 public class PropertyConfig {
 
+    /*
     @Autowired
     Environment env;        // Auto scan the system environment variables
+    */
 
     @Value("${guru.username}")
     String user;
@@ -47,7 +45,7 @@ public class PropertyConfig {
         FakeDataSource fakeDataSource = new FakeDataSource();
 
         // Read environment variables
-        fakeDataSource.setUser(env.getProperty("USERNAME"));
+        fakeDataSource.setUser(user);
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
 
